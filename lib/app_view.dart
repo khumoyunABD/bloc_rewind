@@ -1,5 +1,4 @@
 import 'package:bloc_rewind/components/custom_list_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyAppView extends StatefulWidget {
@@ -14,16 +13,21 @@ class _MyAppViewState extends State<MyAppView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title: Row(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
-            Icon(CupertinoIcons.rectangle),
-            SizedBox(
+            Image.asset(
+              'assets/images/bloc-icon.png',
+              cacheHeight: 45,
+              cacheWidth: 40,
+              //scale: 15,
+            ),
+            const SizedBox(
               width: 15,
             ),
-            Text('Bloc Rewind')
+            const Text('Bloc Rewind')
           ],
         ),
       ),
@@ -49,6 +53,11 @@ class _MyAppViewState extends State<MyAppView> {
             CustomListItem(
               appTitle: 'Internet Connection App',
               appRoute: '/internet_app',
+            ),
+            Divider(),
+            CustomListItem(
+              appTitle: 'Persistent Theme App',
+              appRoute: '/persistent_theme_app',
             ),
             Divider(),
           ],

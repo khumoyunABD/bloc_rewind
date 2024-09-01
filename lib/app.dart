@@ -8,13 +8,16 @@ import 'package:bloc_rewind/counter_app/bloc/visibility_bloc/visibility_bloc.dar
 import 'package:bloc_rewind/counter_app/views/counter_screen.dart';
 import 'package:bloc_rewind/internet_app/internet_cubit/internet_cubit.dart';
 import 'package:bloc_rewind/internet_app/views/internet_screen.dart';
+import 'package:bloc_rewind/persisten_theme_app/views/persisten_theme_screen.dart';
 import 'package:bloc_rewind/timer_app/views/timer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +62,16 @@ class MyApp extends StatelessWidget {
           child: const InternetScreen(),
         ),
       ),
+      GoRoute(
+        path: '/persistent_theme_app',
+        builder: (context, state) => const PersistenThemeScreen(),
+      ),
     ]);
 
     return MaterialApp.router(
       routerConfig: router,
       debugShowCheckedModeBanner: false,
+      // theme: state.themeData,
       theme: ThemeData(
         colorScheme: ColorScheme.light(
           surface: Colors.blue.shade200,

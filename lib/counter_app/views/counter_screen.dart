@@ -89,14 +89,20 @@ class CounterScreen extends StatelessWidget {
                 numColor = Colors.red;
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('The value has gone negative')),
+                  const SnackBar(
+                    content: Text('The value has gone negative'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
                 );
               }
               if (state.counterValue > 0) {
                 numColor = Colors.green;
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('The value is positive')),
+                  const SnackBar(
+                    content: Text('The value is positive'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
                 );
               }
               if (state.counterValue == 0) {
@@ -115,14 +121,20 @@ class CounterScreen extends StatelessWidget {
                 numColor = Colors.red;
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('The value has gone negative')),
+                  const SnackBar(
+                    content: Text('The value has gone negative'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
                 );
               }
               if (state.counterValue > 0) {
                 numColor = Colors.green;
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('The value is positive')),
+                  const SnackBar(
+                    content: Text('The value is positive'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
                 );
               }
               if (state.counterValue == 0) {
@@ -143,30 +155,24 @@ class CounterScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(
-            //right: 10,
-            //bottom: 10,
-            ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton.outlined(
-              iconSize: 30,
-              onPressed: () {
-                context.read<VisibilityBloc>().add(IsVisibleEvent());
-              },
-              icon: const Icon(CupertinoIcons.eye_fill),
-            ),
-            IconButton.outlined(
-              iconSize: 30,
-              onPressed: () {
-                context.read<VisibilityBloc>().add(IsNotVisibleEvent());
-              },
-              icon: const Icon(CupertinoIcons.eye_slash),
-            ),
-          ],
-        ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton.outlined(
+            iconSize: 30,
+            onPressed: () {
+              context.read<VisibilityBloc>().add(IsVisibleEvent());
+            },
+            icon: const Icon(CupertinoIcons.eye_fill),
+          ),
+          IconButton.outlined(
+            iconSize: 30,
+            onPressed: () {
+              context.read<VisibilityBloc>().add(IsNotVisibleEvent());
+            },
+            icon: const Icon(CupertinoIcons.eye_slash),
+          ),
+        ],
       ),
     );
   }
